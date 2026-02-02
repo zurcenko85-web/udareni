@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Помощник по ударениям</title>
+    <meta name="theme-color" content="#4b6cb7">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <header>
+            <h1>Помощник по ударениям</h1>
+            <p class="subtitle">Запомните правильное ударение в сложных словах</p>
+            
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar" id="userAvatar">1</div>
+                <div class="user-info">
+                    <div class="user-level">Уровень: <span id="userLevel">1</span></div>
+                    <div class="user-exp">Опыт: <span id="userExp">0/100</span></div>
+                </div>
+                <div class="achievement-badge" id="achievementBadge" style="display: none;">0</div>
+            </div>
+            
+            <div class="mode-tabs">
+                <div class="mode-tab active" data-mode="dictionary">
+                    Словарь
+                    <span class="badge" id="dictionaryBadge">0</span>
+                </div>
+                <div class="mode-tab" data-mode="test">
+                    Тестовый режим
+                    <span class="badge" id="testBadge">0</span>
+                </div>
+                <div class="mode-tab" data-mode="categories">
+                    Категории
+                    <span class="badge" id="categoriesBadge">5</span>
+                </div>
+                <div class="mode-tab" data-mode="favorites">
+                    Избранное
+                    <span class="badge" id="favoritesBadge">0</span>
+                </div>
+                <div class="mode-tab" data-mode="custom">
+                    Мои слова
+                    <span class="badge" id="customWordsBadge">0</span>
+                </div>
+                <div class="mode-tab" data-mode="rules">
+                    Правила
+                    <span class="badge" id="rulesBadge">3</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- Режим словаря -->
+            <div class="mode-content active" id="dictionary-mode">
+                <div class="input-section">
+                    <label for="wordInput">Введите слово, которое нужно запомнить:</label>
+                    <div class="input-group">
+                        <input type="text" id="wordInput" placeholder="например: торты, банты, договор..." autocomplete="off">
+                        <button id="submitBtn">Показать ударение</button>
+                    </div>
+                </div>
+                
+                <!-- Раздел добавления слов -->
+                <div class="add-word-section">
+                    <h4>➕ Добавить своё слово</h4>
+                    <div class="add-word-form">
+                        <div class="add-word-grid">
+                            <div>
+                                <label>Слово:</label>
+                                <input type="text" id="newWordInput" placeholder="например: красивее">
+                            </div>
+                            <div>
+                                <label>Правильное ударение:</label>
+                                <input type="text" id="newWordStress" placeholder="например: красИвее">
+                                <small>Пишите заглавной буквой ударную гласную</small>
+                            </div>
+                        </div>
+                        <div class="add-word-field">
+                            <label>Пример для запоминания (стишок/ассоциация):</label>
+                            <textarea id="newWordExample" placeholder="Например: Чем кошка игри́вее, тем она краси́вее."></textarea>
+                        </div>
+                        <div class="add-word-field">
+                            <label>Категория:</label>
+                            <select id="newWordCategory">
+                                <option value="разное">Разное</option>
+                                <option value="существительные">Существительные</option>
+                                <option value="глаголы">Глаголы</option>
+                                <option value="прилагательные">Прилагательные</option>
+                                <option value="наречия">Наречия</option>
+                                <option value="деепричастия">Деепричастия</option>
+                            </select>
+                        </div>
+                        <button id="addWordBtn" class="info-btn">Добавить слово в словарь</button>
+                        <div id="addWordMessage" class="add-word-message"></div>
+                    </div>
+                </div>
+                
+                <div class="result-section">
+                    <div class="result-title">Правильное ударение и пример для запоминания:</div>
+                    <div class="stress-word">
+                        <span id="stressWord"></span>
+                        <button id="favoriteButton" class="favorite-button" title="Добавить в избранное">☆</button>
+                    </div>
+                    <div id="exampleText" class="example-text">Введите слово выше, чтобы увидеть пример для запоминания ударения</div>
+                </div>
+                
+                <div class="favorite-filter">
+                    <div class="favorite-toggle" id="showFavoritesToggle">
+                        <span>★</span>
+                        <span>Показать только избранные</span>
+                    </div>
+                </div>
+                
+                <div class="examples-list">
+                    <div class="examples-title">Слова в выбранной категории:</div>
+                    <div class="word-grid" id="wordGrid">
+                        <!-- Слова будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Тестовый режим -->
+            <div class="mode-content" id="test-mode">
+                <div class="test-settings" id="testSettings">
+                    <div class="settings-title">Настройки теста:</div>
+                    <div class="test-mode-options">
+                        <div class="test-mode-btn active" data-questions="10">10 вопросов</div>
+                        <div class="test-mode-btn" data-questions="15">15 вопросов</div>
+                        <div class="test-mode-btn" data-questions="20">20 вопросов</div>
+                        <div class="test-mode-btn" data-questions="0">Бесконечный режим</div>
+                    </div>
+                    <div class="test-mode-options">
+                        <div class="test-mode-btn active" data-test-category="all">Все слова</div>
+                        <div class="test-mode-btn" data-test-category="favorites">Только избранные</div>
+                        <div class="test-mode-btn" data-test-category="custom">Только мои слова</div>
+                    </div>
+                    <button id="startTestBtn" class="success-btn">Начать тест</button>
+                </div>
+                
+                <div class="test-controls" style="display: none;">
+                    <div class="test-info">
+                        Вопрос: <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span>
+                        | Правильно: <span id="correctCount">0</span>
+                    </div>
+                    <div>
+                        <button id="endTestBtn" class="warning-btn">Завершить тест</button>
+                    </div>
+                </div>
+                
+                <div class="test-question" id="testQuestion" style="display: none;">
+                    <div class="test-word" id="testWord">слово</div>
+                    <p style="margin-bottom: 15px; color: #666;">Выберите вариант с правильным ударением:</p>
+                    <div class="test-options" id="testOptions">
+                        <!-- Варианты ударений будут добавлены через JavaScript -->
+                    </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button id="testFavoriteButton" class="test-favorite-button" title="Добавить в избранное">☆</button>
+                    </div>
+                    <button id="submitAnswerBtn" style="display: none;">Проверить ответ</button>
+                    
+                    <div class="test-navigation" id="testNavigation" style="display: none;">
+                        <button id="prevQuestionBtn" class="secondary-btn">← Предыдущий</button>
+                        <button id="nextQuestionBtn" class="success-btn">Следующий →</button>
+                    </div>
+                </div>
+                
+                <div class="test-feedback" id="testFeedback">
+                    <div class="test-result" id="testResult"></div>
+                    <div class="test-example" id="testExample"></div>
+                </div>
+                
+                <div class="test-results-summary" id="testResultsSummary">
+                    <div class="results-header">Результаты теста</div>
+                    <div class="results-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="finalScore">0%</div>
+                            <div class="stat-label">Правильных ответов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="correctAnswers">0</div>
+                            <div class="stat-label">Правильно</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="incorrectAnswers">0</div>
+                            <div class="stat-label">Ошибок</div>
+                        </div>
+                    </div>
+                    <div class="results-words" id="resultsWords"></div>
+                    <div class="test-actions" id="testActions">
+                        <button id="restartTestBtn" class="success-btn">Пройти тест заново</button>
+                        <button id="newTestBtn" class="info-btn">Новый тест</button>
+                        <button id="toDictionaryBtn" class="secondary-btn">В словарь</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Режим категорий -->
+            <div class="mode-content" id="categories-mode">
+                <div class="categories-section">
+                    <div class="categories-title">
+                        <span>Выберите категорию для изучения</span>
+                        <span id="totalProgress">Прогресс: 0%</span>
+                    </div>
+                    <div class="categories-grid" id="categoriesGrid">
+                        <!-- Категории будут добавлены через JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="favorite-filter">
+                    <div class="favorite-toggle" id="showFavoritesToggleCategories">
+                        <span>★</span>
+                        <span>Показать только избранные</span>
+                    </div>
+                </div>
+                
+                <div class="examples-list">
+                    <div class="examples-title">Слова в выбранной категории:</div>
+                    <div class="word-grid" id="categoryWordsGrid">
+                        <!-- Слова категории будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Режим избранного -->
+            <div class="mode-content" id="favorites-mode">
+                <div class="categories-section">
+                    <div class="categories-title">
+                        <span>Избранные слова</span>
+                        <span id="favoritesCount">Всего: 0 слов</span>
+                    </div>
+                    <div class="favorite-filter">
+                        <button id="practiceFavoritesBtn" class="favorite-btn" style="margin-bottom: 15px;">🎯 Тренировать избранные</button>
+                    </div>
+                </div>
+                
+                <div class="examples-list">
+                    <div class="word-grid" id="favoritesGrid">
+                        <!-- Избранные слова будут добавлены через JavaScript -->
+                    </div>
+                    <div id="emptyFavoritesMessage" style="text-align: center; padding: 40px; color: #666;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">★</div>
+                        <h3>Нет избранных слов</h3>
+                        <p>Добавляйте слова в избранное, нажимая на звездочку рядом с ними.</p>
+                        <p>Это поможет вам сосредоточиться на самых сложных для вас словах.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Режим моих слов -->
+            <div class="mode-content" id="custom-mode">
+                <div class="categories-section">
+                    <div class="categories-title">
+                        <span>Мои добавленные слова</span>
+                        <span id="customWordsCount">Всего: 0 слов</span>
+                    </div>
+                </div>
+                
+                <div class="examples-list">
+                    <div class="word-grid" id="customWordsGrid">
+                        <!-- Пользовательские слова будут здесь -->
+                    </div>
+                    <div id="emptyCustomMessage" style="text-align: center; padding: 40px; color: #666;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">📝</div>
+                        <h3>Вы ещё не добавили ни одного слова</h3>
+                        <p>Добавляйте слова, которые хотите запомнить, в разделе "Словарь".</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Режим правил -->
+            <div class="mode-content" id="rules-mode">
+                <div class="rules-container">
+                    <div class="categories-title">
+                        <span>Правила постановки ударения</span>
+                        <span id="rulesCount">Всего правил: 3</span>
+                    </div>
+                    
+                    <div id="rulesList">
+                        <!-- Правила будут добавлены через JavaScript -->
+                    </div>
+                    
+                    <div class="tips-section">
+                        <h4>💡 Советы по запоминанию:</h4>
+                        <ul>
+                            <li>Запоминайте слова вместе с примерами-стишками</li>
+                            <li>Регулярно проходите тесты для закрепления</li>
+                            <li>Добавляйте сложные слова в избранное</li>
+                            <li>Обращайте внимание на исключения из правил</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 Помощник по ударениям</p>
+        </footer>
+    </div>
+    
+    <!-- Модальное окно профиля -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+            <div class="profile-header">
+                <div class="profile-avatar" id="profileAvatar">1</div>
+                <div>
+                    <h3>Профиль ученика</h3>
+                    <p id="profileUsername">Гость</p>
+                    <p id="profileLevel">Уровень 1</p>
+                    <div class="progress-bar">
+                        <div id="profileExpBar" class="progress-fill"></div>
+                    </div>
+                    <p id="profileExpText">Опыт: 0/100</p>
+                </div>
+            </div>
+            
+            <div class="profile-stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="profileWordsLearned">0</div>
+                    <div class="stat-label">Слов изучено</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="profileTestsCompleted">0</div>
+                    <div class="stat-label">Тестов пройдено</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="profileCorrectAnswers">0</div>
+                    <div class="stat-label">Правильных ответов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="profileStreak">0</div>
+                    <div class="stat-label">Дней подряд</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="profileFavorites">0</div>
+                    <div class="stat-label">Избранных слов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="profileCustomWords">0</div>
+                    <div class="stat-label">Мои слова</div>
+                </div>
+            </div>
+            
+            <div class="achievements-section">
+                <h4>Достижения</h4>
+                <div class="achievements-grid" id="achievementsGrid">
+                    <!-- Достижения будут добавлены через JavaScript -->
+                </div>
+            </div>
+            
+            <div class="profile-actions">
+                <button onclick="resetProgress()" class="warning-btn">Сбросить прогресс</button>
+                <button onclick="closeProfileModal()" style="margin-left: 10px;">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
