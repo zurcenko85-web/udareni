@@ -75,7 +75,7 @@ const stressExamples = {
     'кухонный': { example: 'Стол нами купленный и в кухню занесенный, - зовётся кУхонный, а вовсе не кухонный.', correct: 'кУхонный', category: 'прилагательные' },
     'лекторов': { example: 'Немало было лЕкторов,\nПод лампами прожекторов', correct: 'лЕкторов', category: 'существительные' },
     'ловка': { example: 'Грациозна и легка́, Красива, статна и ловкА.', correct: 'ловкА', category: 'наречия' },
-    'местностей': { example: 'Не встретишь лучше мЕстностей\nВокруг наших окрестностей', correct: 'мЕстностей', category: 'существительные' },
+    'местностей': { example: 'Не встретишь лучше мЕстностей\nВокруг наших окрестностей', correct: 'мЕстností', category: 'существительные' },
     'мозаичный': { example: 'Очень необы́чный, орнамент мозаИчный.', correct: 'мозаИчный', category: 'прилагательные' },
     'недуг': { example: 'Ты нам не друг,\nПрощай недУг', correct: 'недУг', category: 'существительные' },
     'некролог': { example: 'Не покажет некролОг,\nЕго скорбный диалог', correct: 'некролОг', category: 'существительные' },
@@ -83,7 +83,7 @@ const stressExamples = {
     'новостей': { example: 'Не отпустим мы гостей\nБез хороших новостЕй', correct: 'новостЕй', category: 'существительные' },
     'ногтя': { example: 'Хотела лишь покраску нОгтя,\nА получила тигра когти', correct: 'нОгтя', category: 'существительные' },
     'оптовый': { example: 'Принять товар гото́вый, ждет новый склад оптОвый.', correct: 'оптОвый', category: 'прилагательные' },
-    'отзыв': { example: 'Был депутат и вот не стало,\nОтзыв лишь слово прозвучало', correct: 'Отзыв', category: 'существительные' },
+    'отзыв': { example: 'Был депутат и вот не стало,\nотзЫв лишь слово прозвучало', correct: 'отзЫв', category: 'существительные' },
     'отрочество': { example: 'Наступает как известно,\nОтрочество после детства', correct: 'Отрочество', category: 'существительные' },
     'поручни': { example: 'Держись за пОручни в метро,\nЧтоб сохранить свое нутро', correct: 'пОручни', category: 'существительные' },
     'прозорлива': { example: 'Она была смазли́ва, болтли́ва, суетли́ва, но крайне прозорлИва.', correct: 'прозорлИва', category: 'наречия' },
@@ -110,8 +110,8 @@ const stressExamples = {
     'документ': { example: 'Это важный докумЕнт, сохрани его.', correct: 'докумЕнт', category: 'существительные' },
     'досуг': { example: 'В свободный досУг он любит читать.', correct: 'досУг', category: 'существительные' },
     'еретик': { example: 'ЕгО объявили еретИком за новые идеи.', correct: 'еретИк', category: 'существительные' },
-    'корысть': { example: 'Он действовал из кОрысти, а не из доброты.', correct: 'кОрысть', category: 'существительные' },
-    'локтя': { example: 'Он ударился локтЁм о дверь.', correct: 'локтЯ', category: 'существительные' },
+    'корысть': { example: 'Он действовал из корЫсти, а не из доброты.', correct: 'корЫсть', category: 'существительные' },
+    'локтя': { example: 'Он ударился лОктем о дверь.', correct: 'лОктя', category: 'существительные' },
     'локтей': { example: 'Измерьте расстояние в локтЯх.', correct: 'локтЕй', category: 'существительные' },
     'лыжня': { example: 'Мы шли по лыжнЕ весь день.', correct: 'лыжнЯ', category: 'существительные' },
     'намерение': { example: 'У него были серьёзные намЕрения.', correct: 'намЕрение', category: 'существительные' },
@@ -120,7 +120,7 @@ const stressExamples = {
     'ненависть': { example: 'Он испытывал нЕнависть к несправедливости.', correct: 'нЕнависть', category: 'существительные' },
     'партер': { example: 'Мы купили билеты в партЕр театра.', correct: 'партЕр', category: 'существительные' },
     'портфель': { example: 'Он носил важные бумаги в портфЕле.', correct: 'портфЕль', category: 'существительные' },
-    'призыв': { example: 'ПрИзыв к действию был услышан всеми.', correct: 'прИзыв', category: 'существительные' },
+    'призыв': { example: 'ПризЫв к действию был услышан всеми.', correct: 'призЫв', category: 'существительные' },
     'созыв': { example: 'Был объявлен созЫв парламента.', correct: 'созЫв', category: 'существительные' },
     'статуя': { example: 'На площади установили новую стАтую.', correct: 'стАтуя', category: 'существительные' },
     'таможня': { example: 'На тамОжне проверили наш багаж.', correct: 'тамОжня', category: 'существительные' },
@@ -179,7 +179,7 @@ const stressExamples = {
     'брала': { example: 'Она бралА книгу с полки.', correct: 'бралА', category: 'глаголы' },
     'бралась': { example: 'Она бралАсь за самое сложное задание.', correct: 'бралАсь', category: 'глаголы' },
     'взяла': { example: 'Она взяла сумку и вышла.', correct: 'взялА', category: 'глаголы' },
-    'взялась': { example: 'Она взялАсь за эту работу с энтузиазмом.', correct: 'взялАсь', category: 'глаголы' },
+    'взялась': { example: 'Она взЯлась за эту работу с энтузиазмом.', correct: 'взЯлась', category: 'глаголы' },
     'влилась': { example: 'Река влилАсь в море.', correct: 'влилАсь', category: 'глаголы' },
     'ворвалась': { example: 'Она ворвалАсь в комнату с криком.', correct: 'ворвалАсь', category: 'глаголы' },
     'восприняла': { example: 'Она воспринялА новость спокойно.', correct: 'воспринялА', category: 'глаголы' },
@@ -192,7 +192,7 @@ const stressExamples = {
     'дождалась': { example: 'Она дождалАсь своего друга.', correct: 'дождалАсь', category: 'глаголы' },
     'дозвонится': { example: 'Он дозвонИтся, когда будет время.', correct: 'дозвонИтся', category: 'глаголы' },
     'дозировать': { example: 'Нужно правильно дозИровать лекарство.', correct: 'дозИровать', category: 'глаголы' },
-    'ждала': { example: 'Она ждалА его целый час.', correct: 'ждалА', category: 'глаголы' },
+    'ждала': { example: 'Она ждАла его целый час.', correct: 'ждАла', category: 'глаголы' },
     'жилось': { example: 'Ему хорошо жилОсь в деревне.', correct: 'жилОсь', category: 'глаголы' },
     'закупорить': { example: 'Нужно закУпорить бутылку плотно.', correct: 'закУпорить', category: 'глаголы' },
     'занял': { example: 'Он зАнял деньги у друга.', correct: 'зАнял', category: 'глаголы' },
@@ -224,7 +224,7 @@ const stressExamples = {
     'облилась': { example: 'Она облилАсь духами.', correct: 'облилАсь', category: 'глаголы' },
     'обнялась': { example: 'Она обнялАсь с подругой.', correct: 'обнялАсь', category: 'глаголы' },
     'обогнала': { example: 'Она обогналА всех соперников.', correct: 'обогналА', category: 'глаголы' },
-    'ободрала': { example: 'Она ободрАла обои со стены.', correct: 'ободрАла', category: 'глаголы' },
+    'ободрала': { example: 'Она ободралА обои со стены.', correct: 'ободралА', category: 'глаголы' },
     'ободрит': { example: 'Это ободрИт его в трудную минуту.', correct: 'ободрИт', category: 'глаголы' },
     'ободрится': { example: 'Он ободрИтся, когда услышит хорошие новости.', correct: 'ободрИтся', category: 'глаголы' },
     'обострить': { example: 'Нужно обострИть внимание.', correct: 'обострИть', category: 'глаголы' },
@@ -254,7 +254,7 @@ const rules = [
     {
         id: 3,
         title: "Глаголы будущего времени",
-        content: "В глаголы, которые отвечают на вопрос: что сделает? - ударение падает на последний слог.\n\nИсключение: глаголы с ударной приставкой вы-.\n\nПримеры:\n• Он дозвонИтся (правильно: дозвонИтся)\n• Она наделИт (правильно: наделИт)\n• Он облегчИт (правильно: облегчИт)\n• Но: Он вЫберет (исключение с приставкой вы-)"
+        content: "В глаголах, которые отвечают на вопрос: что сделает? - ударение падает на последний слог.\n\nИсключение: глаголы с ударной приставкой вы-.\n\nПримеры:\n• Он дозвонИтся (правильно: дозвонИтся)\n• Она наделИт (правильно: наделИт)\n• Он облегчИт (правильно: облегчИт)\n• Но: Он вЫберет (исключение с приставкой вы-)"
     }
 ];
 
@@ -1456,15 +1456,13 @@ function showTestQuestion() {
     elements.testWord.textContent = currentTestWord;
     elements.testOptions.innerHTML = '';
     selectedOption = null;
-    answerSubmitted = false;
-    
-    // Отключаем кнопку "Следующий" до ответа
-    elements.nextQuestionBtn.disabled = true;
-    elements.nextQuestionBtn.classList.add('disabled');
     
     // Восстанавливаем сохраненный ответ, если есть
     const savedAnswer = userAnswers[currentTestWordIndex];
     const questionAlreadyAnswered = savedAnswer && savedAnswer.submitted;
+    
+    // Определяем, был ли уже дан ответ на этот вопрос
+    answerSubmitted = questionAlreadyAnswered;
     
     // Определяем, есть ли длинные слова
     const hasLongWords = options.some(opt => opt.length > 12);
@@ -1528,8 +1526,12 @@ function showTestQuestion() {
         elements.testOptions.appendChild(optionElement);
     });
     
+    // Показываем кнопку "Проверить" только если ответ не отправлен
     elements.submitAnswerBtn.style.display = (selectedOption && !questionAlreadyAnswered) ? 'inline-block' : 'none';
+    
+    // Обновляем состояние кнопок навигации
     updateNavigationButtons();
+    
     elements.testFeedback.classList.remove('show');
     
     if (questionAlreadyAnswered) {
@@ -1562,8 +1564,14 @@ function updateNavigationButtons() {
     const isFirstQuestion = currentTestWordIndex === 0;
     const isLastQuestion = currentTestWordIndex === testWords.length - 1;
     const isInfiniteMode = testModeQuestions === 0;
+    const currentAnswer = userAnswers[currentTestWordIndex];
+    const isCurrentAnswered = currentAnswer && currentAnswer.submitted;
     
     elements.prevQuestionBtn.disabled = isFirstQuestion;
+    
+    // Разрешаем переход к следующему вопросу, если текущий уже отвечен
+    elements.nextQuestionBtn.disabled = !isCurrentAnswered && !isInfiniteMode;
+    elements.nextQuestionBtn.classList.toggle('disabled', !isCurrentAnswered && !isInfiniteMode);
     
     if (isInfiniteMode) {
         elements.nextQuestionBtn.textContent = 'Следующий →';
@@ -1666,14 +1674,16 @@ function goToPreviousQuestion() {
 }
 
 function goToNextQuestion() {
-    // Проверяем, был ли дан ответ
-    if (!answerSubmitted) {
+    const isInfiniteMode = testModeQuestions === 0;
+    const isLastQuestion = currentTestWordIndex === testWords.length - 1;
+    const currentAnswer = userAnswers[currentTestWordIndex];
+    const isCurrentAnswered = currentAnswer && currentAnswer.submitted;
+    
+    // Проверяем, был ли дан ответ на текущий вопрос
+    if (!isInfiniteMode && !isCurrentAnswered) {
         alert('Сначала выберите вариант ответа и нажмите "Проверить"');
         return;
     }
-    
-    const isInfiniteMode = testModeQuestions === 0;
-    const isLastQuestion = currentTestWordIndex === testWords.length - 1;
     
     if (isInfiniteMode) {
         if (isLastQuestion) {
