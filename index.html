@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Помощник по ударениям</title>
@@ -34,7 +33,7 @@
                 </div>
                 <div class="mode-tab" data-mode="categories">
                     Категории
-                    <span class="badge" id="categoriesBadge">5</span>
+                    <span class="badge" id="categoriesBadge">7</span>
                 </div>
                 <div class="mode-tab" data-mode="favorites">
                     Избранное
@@ -46,7 +45,7 @@
                 </div>
                 <div class="mode-tab" data-mode="rules">
                     Правила
-                    <span class="badge" id="rulesBadge">3</span>
+                    <span class="badge" id="rulesBadge">4</span>
                 </div>
             </div>
         </header>
@@ -78,18 +77,19 @@
                             </div>
                         </div>
                         <div class="add-word-field">
-                            <label>Пример для запоминания (стишок/ассоциация):</label>
-                            <textarea id="newWordExample" placeholder="Например: Чем кошка игри́вее, тем она краси́вее."></textarea>
+                            <label>Пример для запоминания (стишок/ассоциация) <small style="color: #666;">(необязательно)</small>:</label>
+                            <textarea id="newWordExample" placeholder="Например: Чем кошка игри́вее, тем она краси́вее. (необязательно)"></textarea>
                         </div>
                         <div class="add-word-field">
                             <label>Категория:</label>
                             <select id="newWordCategory">
-                                <option value="разное">Разное</option>
                                 <option value="существительные">Существительные</option>
                                 <option value="глаголы">Глаголы</option>
                                 <option value="прилагательные">Прилагательные</option>
                                 <option value="наречия">Наречия</option>
+                                <option value="сравнительные">Сравнительные</option>
                                 <option value="деепричастия">Деепричастия</option>
+                                <option value="причастия">Причастия</option>
                             </select>
                         </div>
                         <button id="addWordBtn" class="info-btn">Добавить слово в словарь</button>
@@ -274,7 +274,7 @@
                 <div class="rules-container">
                     <div class="categories-title">
                         <span>Правила постановки ударения</span>
-                        <span id="rulesCount">Всего правил: 3</span>
+                        <span id="rulesCount">Всего правил: 4</span>
                     </div>
                     
                     <div id="rulesList">
@@ -295,7 +295,7 @@
         </div>
         
         <footer>
-            <p>© 2023 Помощник по ударениям</p>
+            <p>© 2026 Помощник по ударениям</p>
         </footer>
     </div>
     
