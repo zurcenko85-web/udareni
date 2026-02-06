@@ -315,11 +315,6 @@ h1 {
     transition: width 0.5s;
 }
 
-/* Аудио элементы - скрыты */
-.audio-controls {
-    display: none !important;
-}
-
 /* Профиль и прогресс */
 .profile-modal {
     display: none;
